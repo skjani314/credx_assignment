@@ -22,7 +22,7 @@ const posts = [
 const BlogSection = () => {
   const { darkMode } = useContext(Context);
   return (
-    <section className={`py-16 px-4 transition-colors duration-300 ${darkMode ? 'bg-gray-900' : 'bg-blue-50'}`}>
+    <section className={`py-16 px-4 transition-colors duration-300 ${darkMode ? 'bg-gray-900' : 'bg-blue-50'}`} id="blog">
       <h2 className={`text-3xl font-bold mb-8 text-center transition-colors duration-300 ${darkMode ? 'text-white' : 'text-blue-900'}`}>Resources & Blog</h2>
       <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
         {posts.map((post, idx) => (

@@ -28,7 +28,7 @@ const FAQ = () => {
   const toggle = idx => setOpenIndex(openIndex === idx ? null : idx);
 
   return (
-    <section className={`py-16 px-4 max-w-4xl mx-auto transition-colors duration-300 ${darkMode ? 'bg-gray-800' : 'bg-white'}`}>
+    <section className={`py-16 px-4 max-w-4xl mx-auto transition-colors duration-300 ${darkMode ? 'bg-gray-800' : 'bg-white'}`} id="faq">
       <h2 className={`text-3xl font-bold mb-8 text-center transition-colors duration-300 ${darkMode ? 'text-white' : 'text-gray-900'}`}>Frequently Asked Questions</h2>
       <div className="space-y-4">
         {faqs.map((faq, idx) => (

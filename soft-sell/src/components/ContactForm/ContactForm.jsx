@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useContext } from 'react';
 import Context from '../../context/Context';
+
 const ContactForm = () => {
   const [form, setForm] = useState({ name: '', email: '', company: '', type: '', message: '' });
   const [errors, setErrors] = useState({});
@@ -26,10 +27,13 @@ const ContactForm = () => {
     setLoading(true);
     setSubmitError("");
     try {
-      // TODO: Replace with your email app code or API endpoint
-      // Example using fetch:
-      // await fetch('/api/contact', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(form) });
-      await new Promise(res => setTimeout(res, 1200)); // Simulate network delay
+      // Send form data to backend API endpoint for email sending
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(form)
+      });
+      if (!response.ok) throw new Error('Failed to send');
       setSubmitted(true);
       setTimeout(() => setSubmitted(false), 4000);
       setForm({ name: '', email: '', company: '', type: '', message: '' });
@@ -81,7 +85,9 @@ const ContactForm = () => {
             <textarea placeholder="Your Message" rows={4} className={`w-full p-3 border rounded-lg transition-colors duration-300 ${darkMode ? 'bg-gray-900 text-white border-gray-700 placeholder-gray-400' : 'bg-blue-50 text-blue-900 border-blue-200 placeholder-blue-400'}`} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} />
             {errors.message && <p className="text-red-500 text-sm mt-1">{errors.message}</p>}
           </div>
-          <button type="submit" className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold text-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 transition-all duration-200 shadow-md disabled:opacity-60 disabled:cursor-not-allowed" disabled={loading}>{loading ? 'Sending...' : 'Submit'}</button>
+          <button type="submit" className="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold text-lg hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 transition-all duration-200 shadow-md" disabled={loading}>
+            {loading ? 'Sending...' : 'Submit'}
+          </button>
         </form>
       </div>
     </section>

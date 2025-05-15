@@ -76,7 +76,7 @@ const Testimonials = () => {
   const visibleTestimonials = getVisibleTestimonials();
 
   return (
-    <section className={`py-16 px-4 text-center font-sans transition-colors duration-300 ${darkMode ? 'bg-gray-800' : 'bg-gradient-to-b from-blue-100 via-white to-blue-50'}`}>
+    <section className={`py-16 px-4 text-center font-sans transition-colors duration-300 ${darkMode ? 'bg-gray-800' : 'bg-gradient-to-b from-blue-100 via-white to-blue-50'}`} id="testimonials">
       <h2 className={`text-3xl sm:text-4xl font-extrabold mb-10 tracking-tight transition-colors duration-300 ${darkMode ? 'text-white' : 'text-blue-900'}`}>What Our Clients Say</h2>
       <div className="max-w-4xl mx-auto relative">
         <div className={`grid gap-8 ${slidesToShow === 2 ? 'lg:grid-cols-2' : ''}`}>

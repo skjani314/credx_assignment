@@ -11,6 +11,7 @@ const HeroSection = () => {
 
   return (
     <section
+      id="hero"
       className={`py-24 px-4 text-center transition-colors duration-300 relative overflow-hidden ${darkMode ? 'bg-gray-900' : 'bg-gradient-to-b from-blue-100 via-white to-blue-50'}`}
       style={{
         backgroundImage: `url(${bgImage})`,
@@ -21,7 +22,6 @@ const HeroSection = () => {
     >
       <div className={`absolute inset-0 w-full h-full ${darkMode ? 'bg-gray-900/80' : 'bg-white/70'}`} aria-hidden="true"></div>
       <div className="max-w-4xl mx-auto relative z-10 flex flex-col items-center animate-cardfadein">
-        <img src="/vite.svg" alt="SoftSell Logo" className="w-20 h-20 mb-4 drop-shadow-lg animate-fadein" style={{animationDelay:'0.05s'}} />
         <h1 className={`text-4xl sm:text-5xl font-extrabold mb-4 transition-colors duration-300 ${darkMode ? 'text-white' : 'text-blue-900 drop-shadow-lg'} animate-slidefadein`}>
           Sell Unused Software Licenses with Ease
         </h1>

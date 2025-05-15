@@ -13,7 +13,7 @@ const features = [
 const WhyChooseUs = () => {
   const {darkMode}=useContext(Context); 
   return (
-    <section className={`py-20 px-4 text-center transition-colors duration-300 ${darkMode ? 'bg-gray-800' : 'bg-gradient-to-b from-blue-100 via-white to-blue-50'}`}>
+    <section className={`py-20 px-4 text-center transition-colors duration-300 ${darkMode ? 'bg-gray-800' : 'bg-gradient-to-b from-blue-100 via-white to-blue-50'}`} id="whychooseus">
       <h2 className={`text-4xl font-extrabold mb-12 tracking-tight transition-colors duration-300 ${darkMode ? 'text-white' : 'text-blue-900'}`}>Why Choose Us</h2>
       <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
         {features.map((item, index) => (

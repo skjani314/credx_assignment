@@ -10,12 +10,10 @@ const NewsletterSignup = () => {
   const [shake, setShake] = useState(false);
 
   React.useEffect(() => {
-    // Check if user already subscribed (persisted)
     const alreadySubscribed = localStorage.getItem('newsletter_subscribed');
     if (alreadySubscribed) {
       setSubmitted(true);
     } else if (!submitted && document.activeElement !== null) {
-      // Focus the input on mount if not submitted
       const input = document.querySelector('#newsletter-email');
       if (input) input.focus();
     }
@@ -32,9 +30,8 @@ const NewsletterSignup = () => {
     }
     setLoading(true);
     try {
-      // TODO: Replace with real API call
-      // await fetch('/api/newsletter', { method: 'POST', body: JSON.stringify({ email }) });
-      await new Promise(res => setTimeout(res, 1000)); // Simulate network delay
+      // Simulate successful subscription (replace with API call if needed)
+      await new Promise(res => setTimeout(res, 1000));
       setSubmitted(true);
       setEmail("");
       localStorage.setItem('newsletter_subscribed', '1');
