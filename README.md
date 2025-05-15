@@ -25,7 +25,7 @@
 - **Animations and microinteractions** throughout (fade, slide, bounce, scale, shake, etc.)
 - **Section IDs and smooth scroll** for navigation
 - **Accessibility**: ARIA roles, keyboard navigation, focus management, color contrast
-- **No sensitive logic (like nodemailer) in frontend**; all email sending is expected to be handled by a backend API
+- **No sensitive logic (like nodemailer) in frontend**;
 - **LocalStorage** for newsletter opt-in persistence
 - **All forms ready for backend integration** (fetch POST to /api/contact, etc.)
 
