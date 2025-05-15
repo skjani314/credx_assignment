@@ -12,17 +12,14 @@ const ChatWidget = () => {
   const [chat, setChat] = useState([
     { sender: 'bot', text: 'Hi! How can I help you today?' }
   ]);
-  const [feedback, setFeedback] = useState([]); // [{index, value: 'up'|'down'}]
+  const [feedback, setFeedback] = useState([]); 
 
   const chatContainerRef = React.useRef(null);
   const textareaRef = React.useRef(null);
 
-  // Focus trap and Escape to close
   React.useEffect(() => {
     if (open) {
-      // Focus textarea on open
       setTimeout(() => textareaRef.current && textareaRef.current.focus(), 0);
-      // Trap focus inside chat widget
       const handleKeyDown = (e) => {
         if (e.key === 'Escape') {
           setOpen(false);
@@ -47,7 +44,7 @@ const ChatWidget = () => {
     }
   }, [open]);
 
-  // Scroll to bottom on new message
+  
   React.useEffect(() => {
     if (chatContainerRef.current) {
       chatContainerRef.current.scrollTop = chatContainerRef.current.scrollHeight;
@@ -73,14 +70,10 @@ const ChatWidget = () => {
     return response.data.candidates[0].content.parts[0].text;
   };
 
-  // Utility to clean Gemini output: remove markdown, extra asterisks, and fix line breaks
   const cleanGeminiResponse = (text) => {
     if (!text) return '';
-    // Remove markdown bold/italic, excessive asterisks, and trim
     let cleaned = text.replace(/\*\*|\*/g, '').replace(/\n{2,}/g, '\n').trim();
-    // Remove leading/trailing newlines and spaces
     cleaned = cleaned.replace(/^\s+|\s+$/g, '');
-    // Replace multiple line breaks with a single one
     cleaned = cleaned.replace(/\n{2,}/g, '\n');
     return cleaned;
   };
@@ -144,7 +137,6 @@ const ChatWidget = () => {
                   aria-label={m.sender === 'bot' ? 'AI response' : 'Your message'}
                 >
                   {m.text}
-                  {/* Show feedback only for bot messages except the initial greeting */}
                   {m.sender === 'bot' && i !== 0 && !feedback.find(f => f.index === i) && (
                     <div className="flex gap-2 mt-1" role="group" aria-label="Rate this answer">
                       <button
@@ -167,7 +159,6 @@ const ChatWidget = () => {
                       </button>
                     </div>
                   )}
-                  {/* Show thank you after feedback */}
                   {m.sender === 'bot' && i !== 0 && feedback.find(f => f.index === i) && (
                     <div className="text-xs mt-1 text-blue-400" aria-live="polite">Thank you for your feedback!</div>
                   )}

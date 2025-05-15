@@ -27,7 +27,6 @@ const ContactForm = () => {
     setLoading(true);
     setSubmitError("");
     try {
-      // Send form data to backend API endpoint for email sending
       const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

@@ -18,7 +18,6 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [active, setActive] = useState('hero');
 
-  // Scroll to section
   const handleNavClick = (id) => {
     setMenuOpen(false);
     const el = document.getElementById(id);
@@ -27,7 +26,6 @@ const Navbar = () => {
     }
   };
 
-  // Highlight active section on scroll
   useEffect(() => {
     const handleScroll = () => {
       const offsets = navItems.map(item => {
@@ -71,7 +69,6 @@ const Navbar = () => {
             {darkMode ? <FaSun /> : <FaMoon />}
           </button>
         </div>
-        {/* Mobile menu button */}
         <button
           className="md:hidden text-2xl focus:outline-none ml-2"
           onClick={() => setMenuOpen(!menuOpen)}
@@ -80,7 +77,6 @@ const Navbar = () => {
           {menuOpen ? <FaTimes /> : <FaBars />}
         </button>
       </div>
-      {/* Mobile menu */}
       {menuOpen && (
         <div className={`md:hidden bg-white dark:bg-gray-900 shadow-lg px-4 py-4 space-y-2 transition-all duration-300`}> 
           {navItems.map(item => (
